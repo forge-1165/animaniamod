@@ -2,12 +2,12 @@
 buildscript {
     repositories {
         // These repositories are only for Gradle plugins, put any other repositories in the repository block further below
-        maven { url = 'https://sizableshrimp.me/maven' }
         maven { url = 'https://maven.minecraftforge.net' }
+        maven { url = 'https://maven.parchmentmc.org' }
         mavenCentral()
     }
     dependencies {
-        classpath group: 'me.sizableshrimp.parchmenttest', name: 'ForgeGradle', version: '5.1.+', changing: true
+        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '5.1.+', changing: true
     }
 }
 
@@ -85,7 +85,7 @@ minecraft {
         server {
             workingDirectory project.file('run')
 
-            // Recommended logging data for a userdev environment
+            // Recommended logging data for the console
             // The markers can be changed as needed.
             // "SCAN": For mods scan.
             // "REGISTRIES": For firing of registry events.
@@ -107,7 +107,7 @@ minecraft {
         data {
             workingDirectory project.file('run')
 
-            // Recommended logging data for a userdev environment
+            // Recommended logging data for the console
             // The markers can be changed as needed.
             // "SCAN": For mods scan.
             // "REGISTRIES": For firing of registry events.
@@ -143,12 +143,12 @@ repositories {
     maven { //Maven for Waila
        name 'ProfMobius maven'
        url "https://mobiusstrip.eu/maven/"
-   }
+    }
 
-  	maven { //Maven for HWYLA
+   	maven { //Maven for HWYLA
        name 'Tehnut maven'
        url "https://maven.tehnut.info/"
-   }
+    }
 
    maven { //Maven for JEI
     name = "Progwml6 maven"
@@ -384,12 +384,12 @@ publishing {
 				
 		// 		pom.withXml {
 
-		// 			// Go through all the dependencies.
-		// 			asNode().dependencies.dependency.each { dep ->
+			// 			// Go through all the dependencies.
+			// 			asNode().dependencies.dependency.each { dep ->
 
-		// 				println 'Surpressing artifact ' + dep.artifactId.last().value().last() + ' from maven dependencies.'
-		// 				assert dep.parent().remove(dep)
-		// 			}
+			// 				println 'Surpressing artifact ' + dep.artifactId.last().value().last() + ' from maven dependencies.'
+			// 				assert dep.parent().remove(dep)
+			// 			}
 		// 		}
 				
 		// 		artifact tasks.getByName("${element}Deobf") {
